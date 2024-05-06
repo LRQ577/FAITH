@@ -77,11 +77,11 @@ class Model(nn.Module):
         # @lrq 映射输出维度
         self.to_output = nn.Linear(self.seq_len, self.pred_len)       
 
-        self.fc = nn.Sequential(
-            nn.Linear(self.seq_length * self.embed_size, self.hidden_size),
-            nn.LeakyReLU(),
-            nn.Linear(self.hidden_size, self.pre_length)
-        )
+        # self.fc = nn.Sequential(
+        #     nn.Linear(self.seq_length * self.embed_size, self.hidden_size),
+        #     nn.LeakyReLU(),
+        #     nn.Linear(self.hidden_size, self.pre_length)
+        # )
         # @lrq合并用的函数
         self.W_fuse = torch.nn.Parameter(torch.ones(2))
 
