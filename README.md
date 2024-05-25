@@ -1,5 +1,5 @@
 # FAITH :Frequency-domain Attention In Two Horizon for TSF
-
+# Soon...
 # Start
 1. ```pip install -r requirement.txt ```
 2. Dataset. All the six long-term benchmark datasets can be obtained from [Google Drive](https://drive.google.com/file/d/1CC4ZrUD4EKncndzgy5PSTzOPSqcuyqqj/view) .
