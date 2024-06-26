@@ -21,7 +21,7 @@ FAITH  captures inter-channel relationships and temporal global information in t
 2. Dataset. All the six long-term benchmark datasets can be obtained from [Google Drive](https://drive.google.com/file/d/1CC4ZrUD4EKncndzgy5PSTzOPSqcuyqqj/view) .
 3. Reproducibility. We provide the experiment scripts under the folder ./scripts. You can reproduce the experiments results by:
    ```
-   bash ./scripts/run_M.sh
+   bash run_all.sh
    ```
 
 
