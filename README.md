@@ -10,11 +10,11 @@ FAITH  captures inter-channel relationships and temporal global information in t
 ![fig22](https://github.com/LRQ577/FAITH/assets/119293404/5844097a-ef86-4c25-bb45-c31fbfa15c2d)
 
 # FCTEM of FAITH
-
-![fig44](https://github.com/LRQ577/FAITH/assets/119293404/9c56c368-49d4-4f35-8857-45b8422b9e87)
+![fig44](https://github.com/LRQ577/FAITH/assets/119293404/e85c13a9-bd95-4ec9-932d-a77036c33000)
 
 # Experiment
-![image](https://github.com/LRQ577/FAITH/assets/119293404/0b7891d6-9134-42ee-b7b9-1ed4977a32fd)
+![image](https://github.com/LRQ577/FAITH/assets/119293404/bb514b27-3099-4347-993e-ae6d1c797455)
+
 
 # Start
 1. ```pip install -r requirement.txt ```
