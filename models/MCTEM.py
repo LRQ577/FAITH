@@ -114,7 +114,7 @@ class Model(nn.Module):
         
 
 
-    # dimension extension 这里其实比较怀疑，挤出一个维度，然后做embedding，映射，真的有效果吗？这里的embedding也不是做卷积，肯定算升维，算embedding吗
+
     def tokenEmb(self, x):
         # x: [Batch, Input length, Channel]
         x = x.permute(0, 2, 1)
