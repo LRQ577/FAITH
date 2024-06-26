@@ -57,8 +57,8 @@ parser.add_argument('--num_blocks', type=int, default=6, help='the number of the
 parser.add_argument('--num_layers', type=int, default=6, help='the number of the atttention layers in CEM or TEM')
 
 # Window embedding and Flatten 
-parser.add_argument('--task_name', type=str, required=True, default='long_term_forecast',
-                        help='task name, options:[long_term_forecast, short_term_forecast, imputation, classification, anomaly_detection]')
+# parser.add_argument('--task_name', type=str, required=True, default='long_term_forecast',
+#                         help='task name, options:[long_term_forecast, short_term_forecast, imputation, classification, anomaly_detection]')
 parser.add_argument('--individual', type=int, default=1, help='False:0,True:1')
 parser.add_argument('--w_size', type=int, default=8, help='w_size')
 
@@ -80,8 +80,9 @@ parser.add_argument('--factor', type=int, default=1, help='attn factor')
 parser.add_argument('--distil', action='store_false',
                     help='whether to use distilling in encoder, using this argument means not using distilling',
                     default=True)
-parser.add_argument('--dropout', type=float, default=0.05, help='dropout')
+parser.add_argument('--head_dropout', type=float, default=0.05, help='head_dropout')
 parser.add_argument('--fc_dropout', type=float, default=0.05, help='fc_dropout')
+parser.add_argument('--dropout', type=float, default=0.05, help='dropout')
 parser.add_argument('--embed', type=str, default='timeF',
                     help='time features encoding, options:[timeF, fixed, learned]')
 parser.add_argument('--activation', type=str, default='gelu', help='activation')
@@ -125,7 +126,7 @@ Exp = Exp_Main
 if args.is_training:
     for ii in range(args.itr):
         # setting record of experiments
-        setting = '{}_{}_{}_ft{}_sl{}_ll{}_pl{}_dm{}_nh{}_el{}_dl{}_df{}_fc{}_eb{}_dt{}_{}_channel{}_temporal{}_num_blocks{}_num_layers{}'.format(
+        setting = '{}_{}_{}_ft{}_sl{}_ll{}_pl{}_dm{}_nh{}_el{}_dl{}_df{}_fc{}_eb{}_dt{}_{}_lr{}'.format(
             args.model_id,
             args.model,
             args.data,
@@ -142,10 +143,7 @@ if args.is_training:
             args.embed,
             args.distil,
             args.des,
-            args.channel_independence,
-            args.temporal_independence,
-            args.num_blocks,
-            args.num_layers,
+            args.learning_rate,
              ii)
 
         exp = Exp(args)  # set experiments
@@ -163,7 +161,7 @@ if args.is_training:
         torch.cuda.empty_cache()
 else:
     ii = 0
-    setting = '{}_{}_{}_ft{}_sl{}_ll{}_pl{}_dm{}_nh{}_el{}_dl{}_df{}_fc{}_eb{}_dt{}_{}_channel{}_temporal{}_num_blocks{}_num_layers{}'.format(
+    setting = '{}_{}_{}_ft{}_sl{}_ll{}_pl{}_dm{}_nh{}_el{}_dl{}_df{}_fc{}_eb{}_dt{}_{}_lr{}'.format(
             args.model_id,
             args.model,
             args.data,
@@ -180,10 +178,7 @@ else:
             args.embed,
             args.distil,
             args.des,
-            args.channel_independence,
-            args.temporal_independence,
-            args.num_blocks,
-            args.num_layers, 
+            args.learning_rate,
             ii)
 
     exp = Exp(args)  # set experiments

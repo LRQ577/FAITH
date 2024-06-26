@@ -298,8 +298,8 @@ class Exp_Main(Exp_Basic):
 
         mae, mse, rmse, mape, mspe, rse, corr = metric(preds, trues)
         # print('mse:{}, mae:{}, rmse:{}'.format(mse, mae, rmse))
-        if self.print_mse == 1:
-            print('mse:{}'.format(mse))        
+        # if self.print_mse == 1:
+        #     print('mse:{}'.format(mse))        
         if self.print_mae == 1:
             print('mae:{}'.format(mae))        
         if self.print_rmse == 1:
@@ -308,7 +308,8 @@ class Exp_Main(Exp_Basic):
 
         f = open("result.txt", 'a')
         f.write(setting + "  \n")
-        f.write('mae:{},rmse:{}'.format(mae,rmse))
+        # f.write('mse:{}, mae:{}, rse:{}, rmse:{}'.format(mse, mae, rse, rmse))
+        f.write('mae:{},rmse:{}'.format(mae, rmse))
         f.write('\n')
         f.write('\n')
         f.close()
