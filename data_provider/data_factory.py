@@ -16,6 +16,8 @@ data_dict = {
     'ETTm2': Dataset_Custom_,
     'exchange_rate': Dataset_Custom_,
     'coils':Dataset_Custom_,
+    'solar':Dataset_Custom_,
+    'wiki': Dataset_Custom_,
 }
 
 

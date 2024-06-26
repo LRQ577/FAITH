@@ -19,7 +19,7 @@ class Attention(nn.Module):
         self.out_projection = nn.Linear(d_values * n_heads, d_model)
         self.n_heads = n_heads
         self.d_model = d_model
-        self.c_out = c_out
+        # self.c_out = int(c_out) 
         self.inner_correlation = inner_correlation(d_model,index,c_out)
 
 
@@ -85,7 +85,7 @@ class Attention(nn.Module):
     
         
 class inner_correlation(nn.Module):
-    def __init__(self, d_model, index_len, c_out,n_heads=8):
+    def __init__(self, d_model, index_len, c_out, n_heads=8):
         super(inner_correlation, self).__init__()
 
         self.in_channels = d_model
@@ -94,7 +94,7 @@ class inner_correlation(nn.Module):
 
         self.scale = (1 / (self.in_channels * self.out_channels))
         self.weights1 = nn.Parameter(
-            self.scale * torch.rand(self.c_out,8, self.in_channels // 8, self.out_channels // 8, len(index_len), dtype=torch.float))
+            self.scale * torch.rand(self.c_out ,8, self.in_channels // 8, self.out_channels // 8, len(index_len), dtype=torch.float))
 
              
     def forward(self, q, k, v, d_model, attn_mask=None):

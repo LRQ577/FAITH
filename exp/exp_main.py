@@ -47,7 +47,7 @@ class Exp_Main(Exp_Basic):
         return model_optim
 
     def _select_criterion(self):
-        criterion = nn.MSELoss()
+        criterion = nn.L1Loss()
         return criterion
 
     def vali(self, vali_data, vali_loader, criterion):
@@ -274,7 +274,7 @@ class Exp_Main(Exp_Basic):
                 preds.append(pred)
                 trues.append(true)
                 inputx.append(batch_x.detach().cpu().numpy())
-                if i % 20 == 0:
+                if i % 2 == 0:
                     input = batch_x.detach().cpu().numpy()
                     gt = np.concatenate((input[0, :, -1], true[0, :, -1]), axis=0)
                     pd = np.concatenate((input[0, :, -1], pred[0, :, -1]), axis=0)
@@ -308,7 +308,7 @@ class Exp_Main(Exp_Basic):
 
         f = open("result.txt", 'a')
         f.write(setting + "  \n")
-        f.write('mse:{}, mae:{}, rse:{}, rmse:{}'.format(mse, mae, rse, rmse))
+        f.write('mae:{},rmse:{}'.format(mae,rmse))
         f.write('\n')
         f.write('\n')
         f.close()

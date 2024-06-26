@@ -5,7 +5,7 @@ from exp.exp_main import Exp_Main
 import random
 import numpy as np
 
-fix_seed = 2021
+fix_seed = 2024
 random.seed(fix_seed)
 torch.manual_seed(fix_seed)
 np.random.seed(fix_seed)
@@ -56,8 +56,15 @@ parser.add_argument('--print_rmse', type=int, default=1, help='if print rmse in 
 parser.add_argument('--num_blocks', type=int, default=6, help='the number of the CEM and TEM blocks in CTEM blocks')
 parser.add_argument('--num_layers', type=int, default=6, help='the number of the atttention layers in CEM or TEM')
 
+# Window embedding and Flatten 
+parser.add_argument('--task_name', type=str, required=True, default='long_term_forecast',
+                        help='task name, options:[long_term_forecast, short_term_forecast, imputation, classification, anomaly_detection]')
+parser.add_argument('--individual', type=int, default=1, help='False:0,True:1')
+parser.add_argument('--w_size', type=int, default=8, help='w_size')
+
+
 # DLinear
-parser.add_argument('--individual', action='store_true', default=False, help='DLinear: a linear layer for each variate(channel) individually')
+# parser.add_argument('--individual', action='store_true', default=False, help='DLinear: a linear layer for each variate(channel) individually')
 # Formers 
 parser.add_argument('--embed_type', type=int, default=0, help='0: default 1: value embedding + temporal embedding + positional embedding 2: value embedding + temporal embedding 3: value embedding + positional embedding 4: value embedding')
 parser.add_argument('--enc_in', type=int, default=7, help='encoder input size')
@@ -67,13 +74,14 @@ parser.add_argument('--d_model', type=int, default=512, help='dimension of model
 parser.add_argument('--n_heads', type=int, default=8, help='num of heads')
 parser.add_argument('--e_layers', type=int, default=2, help='num of encoder layers')
 parser.add_argument('--d_layers', type=int, default=1, help='num of decoder layers')
-parser.add_argument('--d_ff', type=int, default=2048, help='dimension of fcn')
+parser.add_argument('--d_ff', type=int, default=128, help='dimension of fcn')
 parser.add_argument('--moving_avg', type=int, default=25, help='window size of moving average')
 parser.add_argument('--factor', type=int, default=1, help='attn factor')
 parser.add_argument('--distil', action='store_false',
                     help='whether to use distilling in encoder, using this argument means not using distilling',
                     default=True)
 parser.add_argument('--dropout', type=float, default=0.05, help='dropout')
+parser.add_argument('--fc_dropout', type=float, default=0.05, help='fc_dropout')
 parser.add_argument('--embed', type=str, default='timeF',
                     help='time features encoding, options:[timeF, fixed, learned]')
 parser.add_argument('--activation', type=str, default='gelu', help='activation')
