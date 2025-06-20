@@ -1,7 +1,7 @@
 # FAITH :Frequency-domain Attention In Two Horizon for TSF
 
 
-Time series forecasting is a critical demand for real applications. Enlighted by the classic time series analysis and stochastic process theory, we propose the FAITH as a general series forecasting model [paper]([https://arxiv.org/pdf/2405.13300](https://www.sciencedirect.com/science/article/abs/pii/S0950705124014242)) .
+Time series forecasting is a critical demand for real applications. Enlighted by the classic time series analysis and stochastic process theory, we propose the FAITH as a general series forecasting model [paper](https://www.sciencedirect.com/science/article/abs/pii/S0950705124014242) .
 
 FAITH  captures inter-channel relationships and temporal global information in the sequence. Extensive experiments on 6 benchmarks for long-term forecasting and 5 benchmarks for short-term forecasting demonstrate that FAITH outperforms existing models in many fields, such as electricity, weather and traffic, proving its effectiveness and superiority both in long-term and short-term time series forecasting tasks.
 
